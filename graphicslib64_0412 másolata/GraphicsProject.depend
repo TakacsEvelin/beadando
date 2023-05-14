@@ -1,0 +1,81 @@
+# depslib dependency file v1.0
+1682278494 source:c:\users\evena\downloads\graphicskit64\graphicslib64_0412\main.cpp
+	"graphics.hpp"
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<vector>
+	<cmath>
+	"komplex.hpp"
+
+1618178770 c:\users\evena\downloads\graphicskit64\graphicslib64_0412\include\graphics.hpp
+	<string>
+	<vector>
+
+1680183710 c:\users\evena\downloads\graphicskit64\graphicslib64_0412\stb_image.h
+	"stb_image.h"
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<assert.h>
+	<stdint.h>
+	<emmintrin.h>
+	<intrin.h>
+	<arm_neon.h>
+
+1682247905 c:\users\evena\downloads\graphicskit64\graphicslib64_0412\komplex.hpp
+
+1682249061 source:c:\users\evena\downloads\graphicskit64\graphicslib64_0412\komplex.cpp
+	"graphics.hpp"
+	"komplex.hpp"
+
+1682709371 source:c:\users\evena\downloads\graphicskit64\graphicslib64_0412 másolata\ewidget.cpp
+	"ewidget.hpp"
+	"graphics.hpp"
+
+1682709209 c:\users\evena\downloads\graphicskit64\graphicslib64_0412 másolata\ewidget.hpp
+	"graphics.hpp"
+
+1682711140 source:c:\users\evena\downloads\graphicskit64\graphicslib64_0412 másolata\main.cpp
+	"graphics.hpp"
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<vector>
+	<cmath>
+	"ewidget.hpp"
+	"spinbox.hpp"
+	"wordlist.hpp"
+	<fstream>
+
+1618178770 c:\users\evena\downloads\graphicskit64\graphicslib64_0412 másolata\include\graphics.hpp
+	<string>
+	<vector>
+
+1682711140 c:\users\evena\downloads\graphicskit64\graphicslib64_0412 másolata\spinbox.hpp
+	"ewidget.hpp"
+	"graphics.hpp"
+
+1682711140 source:c:\users\evena\downloads\graphicskit64\graphicslib64_0412 másolata\spinbox.cpp
+	"spinbox.hpp"
+	"ewidget.hpp"
+	"graphics.hpp"
+	<iostream>
+
+1682711140 source:c:\users\evena\downloads\graphicskit64\graphicslib64_0412 másolata\wordlist.cpp
+	"wordlist.hpp"
+	"ewidget.hpp"
+	"graphics.hpp"
+	<vector>
+
+1682711140 c:\users\evena\downloads\graphicskit64\graphicslib64_0412 másolata\wordlist.hpp
+	"ewidget.hpp"
+	"graphics.hpp"
+	<vector>
+
