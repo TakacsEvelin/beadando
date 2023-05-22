@@ -6,7 +6,6 @@
 #include "stb_image.h"
 #include <cstdlib>
 #include <iostream>
-#include <fstream>
 #include <cmath>
 #include "ewidget.hpp"
 #include "spinbox.hpp"
@@ -96,7 +95,7 @@ void Session::event_loop(){
                         _map[i][j].event_handle(ev);
                     }
             }
-            if (ev.type==ev_key && ev.keycode==1){
+            if (ev.type==ev_key && ev.keycode==99){
                 for (int i=0;i<_map.size();i++){
                     for (int j=0;j<_map[i].size();j++){
                         if (_map[i][j].isselected()){

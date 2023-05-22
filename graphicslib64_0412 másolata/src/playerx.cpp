@@ -1,16 +1,7 @@
-#include "player.hpp"
+#include "playerx.hpp"
 #include <vector>
 #include "textureblock.hpp"
 #include "graphics.hpp"
-#include "../eventloop.hpp"
-#include <cstdlib>
-#include <iostream>
-#include <fstream>
-#include <cmath>
-#include "../ewidget.hpp"
-#include "../spinbox.hpp"
-#include "../wordlist.hpp"
-#include <random>
 
 using namespace std;
 using namespace genv;
