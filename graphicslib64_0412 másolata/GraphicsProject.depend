@@ -111,11 +111,12 @@
 	"graphics.hpp"
 	<vector>
 
-1684778763 source:c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\src\textureblock.cpp
+1684779588 source:c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\src\textureblock.cpp
 	"textureblock.hpp"
 	"../ewidget.hpp"
 	"graphics.hpp"
 	<vector>
+	<iostream>
 
 1684778661 c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\include\textureblock.hpp
 	"../ewidget.hpp"
@@ -185,7 +186,7 @@
 	"../spinbox.hpp"
 	"../wordlist.hpp"
 
-1684775756 c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\include\playerx.hpp
+1684784400 c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\include\playerx.hpp
 	<vector>
 	"textureblock.hpp"
 	"graphics.hpp"

@@ -87,7 +87,7 @@ void Session::event_loop(){
     vector<textureblock> pv2;
     playerx p2 = playerx("Boglárka",pv2);
     _players.push_back(p1);
-    _players.push_back(p1);
+    _players.push_back(p2);
 
     event ev;
     while(gin >> ev && ev.keycode != key_escape) {
@@ -105,7 +105,13 @@ void Session::event_loop(){
                         if (_map[i][j].isselected()){
                             textureblock a = textureblock((i*_XX/10)+PIX,j*_XX/10+PIX,_XX/10-2*PIX,_XX/10-2*PIX,city,ures,"city");
                             _players[_active_player].addtroop(a);
-                            _active_player= (_active_player+1)%_players.size();
+                            if (_active_player+1 < _players.size()){
+                                _active_player+=1;
+                                cout<<"ap: "<<_active_player<<endl;
+                            }
+                            else {
+                                _active_player=0;
+                            }
 
                         }
                     }
@@ -117,7 +123,13 @@ void Session::event_loop(){
                         if (_map[i][j].isselected()){
                             textureblock a = textureblock((i*_XX/10)+PIX,j*_XX/10+PIX,_XX/10-2*PIX,_XX/10-2*PIX,soldier,ures,"soldier");
                             _players[_active_player].addtroop(a);
-                            _active_player= (_active_player+1)%_players.size();
+                            if (_active_player+1 < _players.size()){
+                                _active_player+=1;
+                                cout<<"ap: "<<_active_player<<endl;
+                            }
+                            else {
+                                _active_player=0;
+                            }
 
                         }
                     }
@@ -125,26 +137,54 @@ void Session::event_loop(){
             }
             for (int i=0;i<_players.size();i++){
                     for (int j=0;j<_players[i]._egysegek.size();j++){
-                            if(_players[i]._egysegek[j].gettype()=="soldier" && _players[i]._egysegek[j].isselected()){
+                            if(_players[i]._egysegek[j].gettype()=="soldier" && _players[i]._egysegek[j].isselected() && i==_active_player){
                                 if (ev.type==ev_key && ev.keycode==65536){
                                     _players[i]._egysegek[j].changeplace("up");
                                     cout<<"Up1"<<endl;
+                                    if (_active_player+1 < _players.size()){
+                                _active_player+=1;
+                                cout<<"ap: "<<_active_player<<endl;
+                            }
+                            else {
+                                _active_player=0;
+                            }
                                 }
                                 if (ev.type==ev_key && ev.keycode==65537){
                                     _players[i]._egysegek[j].changeplace("down");
+                                    if (_active_player+1 < _players.size()){
+                                _active_player+=1;
+                                cout<<"ap: "<<_active_player<<endl;
+                            }
+                            else {
+                                _active_player=0;
+                            }
                                 }
                                 if (ev.type==ev_key && ev.keycode==65539){
                                     _players[i]._egysegek[j].changeplace("right");
+                                    if (_active_player+1 < _players.size()){
+                                _active_player+=1;
+                                cout<<"ap: "<<_active_player<<endl;
+                            }
+                            else {
+                                _active_player=0;
+                            }
                                 }
                                 if (ev.type==ev_key && ev.keycode==65538){
                                     _players[i]._egysegek[j].changeplace("left");
+                                    if (_active_player+1 < _players.size()){
+                                _active_player+=1;
+                                cout<<"ap: "<<_active_player<<endl;
+                            }
+                            else {
+                                _active_player=0;
+                            }
                                 }
                             }
                         _players[i]._egysegek[j].draw();
                         _players[i]._egysegek[j].event_handle(ev);
                     }
             }
-            gout<<color(0,0,0)<<move_to(20,(4*_XX/5)+20)<<text("Valami");
+            gout<<color(0,0,0)<<move_to(20,(4*_XX/10)+20)<<text(_players[_active_player].getname()+" jön");
             gout<<refresh;
     }
 }
