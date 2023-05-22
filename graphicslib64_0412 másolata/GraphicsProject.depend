@@ -135,7 +135,7 @@
 	<fstream>
 	"eventloop.hpp"
 
-1684775127 c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\eventloop.hpp
+1684775754 c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\eventloop.hpp
 	<vector>
 	"textureblock.hpp"
 	"graphics.hpp"
@@ -185,12 +185,12 @@
 	"../spinbox.hpp"
 	"../wordlist.hpp"
 
-1684775127 c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\include\playerx.hpp
+1684775756 c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\include\playerx.hpp
 	<vector>
 	"textureblock.hpp"
 	"graphics.hpp"
 
-1684775127 source:c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\src\playerx.cpp
+1684775761 source:c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\src\playerx.cpp
 	"playerx.hpp"
 	<vector>
 	"textureblock.hpp"

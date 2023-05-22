@@ -101,9 +101,16 @@ void Session::event_loop(){
                         if (_map[i][j].isselected()){
                             textureblock a = textureblock((i*_XX/10)+PIX,j*_XX/10+PIX,_XX/10-2*PIX,_XX/10-2*PIX,city,ures);
                             _players[_active_player].addtroop(a);
+
                         }
                     }
+                }
             }
+            for (int i=0;i<_players.size();i++){
+                    for (int j=0;j<_players[i]._egysegek.size();j++){
+                        _players[i]._egysegek[j].draw();
+                        _players[i]._egysegek[j].event_handle(ev);
+                    }
             }
             gout<<refresh;
     }
