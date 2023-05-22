@@ -5,6 +5,7 @@
 #include <vector>
 
 using namespace genv;
+using namespace std;
 
 
 class textureblock : public Ewidget {

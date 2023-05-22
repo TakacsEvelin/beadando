@@ -11,10 +11,17 @@ class Session {
 protected:
     int _XX;
     int _YY;
+    int PIX;
+    int _jtszx;
+    int _jtszy;
+    int _xstart;
+    int _ystart;
     vector<vector<textureblock>> _map;
     canvas kepolvas(const char* kepnev, const bool& pnge, const int& atlatszo);
+    void keptorol();
+    vector<vector<textureblock>> mapmaker(canvas c, vector<string> opts);
 public:
-    Session(int xx,int yy)
+    Session(int xx,int p, int jtx,int jty);
     void event_loop();
 };
 

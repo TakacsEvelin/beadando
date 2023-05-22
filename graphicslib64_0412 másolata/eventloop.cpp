@@ -4,10 +4,32 @@
 #include "eventloop.hpp"
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
+#include <cmath>
+#include "ewidget.hpp"
+#include "spinbox.hpp"
+#include "wordlist.hpp"
 
-canvas kepolvas(const char* kepnev, const bool& pnge, const int& atlatszo)
+Session::Session(int xx,int p, int jtx,int jty){
+    _XX=xx;
+    _YY=(8*xx)/5;
+    PIX=p;
+    _jtszx=jtx;
+    _jtszy=jty;
+    _ystart=jty/2;
+    _xstart=jtx/2;
+}
+
+void Session::keptorol(){
+    gout<<color(255,255,255)<<move_to(1,1)<<box_to(_XX-1,_YY-1);
+}
+
+
+
+canvas Session::kepolvas(const char* kepnev, const bool& pnge, const int& atlatszo)
 {
-    //Ez olvassa be a textúra fileokat, majd felnagyítja õket és átalakítja canvassá a jobb másolhatóság érdekében. Érzékeli az átlátszóságot is egy képen.
     int width,height,n;
     unsigned char *data = stbi_load(kepnev, &width, &height, &n, 4);
     canvas c;
@@ -19,7 +41,6 @@ canvas kepolvas(const char* kepnev, const bool& pnge, const int& atlatszo)
             unsigned char g = data[y * width * 4 + x * 4 + 1] - atlatszo;
             unsigned char b = data[y * width * 4 + x * 4 + 2] - atlatszo;
             unsigned char a = data[y * width * 4 + x * 4 + 3];
-            //cout<<"vmi betu "<<static_cast<unsigned>(a)<<endl;
             if (r==0 && g==0 && b==0){
                 r+=1;
             }
@@ -35,4 +56,34 @@ canvas kepolvas(const char* kepnev, const bool& pnge, const int& atlatszo)
     stbi_image_free(data);
     c.transparent(pnge);
     return c;
+}
+
+vector<vector<textureblock>> Session::mapmaker(canvas c, vector<string> opts){
+    vector<vector<textureblock>> v;
+    for(int i=0;i<_jtszy;i++){
+            vector<textureblock> sor;
+        for(int j=0;j<_jtszx;j++){
+            textureblock a = textureblock(i*_XX/10,j*_XX/10,_XX/10,_XX/10,c,opts);
+            sor.push_back(a);
+        }
+        v.push_back(sor);
+    }
+    return v;
+}
+
+void Session::event_loop(){
+    gout.open(_XX,_YY);
+    vector<string> ures;
+    canvas bozot = kepolvas("bozot.png",false,0);
+    _map = mapmaker(bozot,ures);
+    event ev;
+    while(gin >> ev && ev.keycode != key_escape) {
+            keptorol();
+            for (int i=0;i<_map.size();i++){
+                    for (int j=0;j<_map[i].size();j++){
+                        _map[i][j].draw();
+                    }
+            }
+            gout<<refresh;
+    }
 }
