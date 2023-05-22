@@ -111,7 +111,7 @@
 	"graphics.hpp"
 	<vector>
 
-1684759714 source:c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\src\textureblock.cpp
+1684760990 source:c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\src\textureblock.cpp
 	"textureblock.hpp"
 	"../ewidget.hpp"
 	"graphics.hpp"
@@ -140,7 +140,7 @@
 	"textureblock.hpp"
 	"graphics.hpp"
 
-1684760060 source:c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\eventloop.cpp
+1684761003 source:c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\eventloop.cpp
 	<vector>
 	"textureblock.hpp"
 	"graphics.hpp"
