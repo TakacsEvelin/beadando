@@ -12,6 +12,9 @@
 #include "wordlist.hpp"
 #include "playerx.hpp"
 
+using namespace genv;
+using namespace std;
+
 Session::Session(int xx,int p, int jtx,int jty){
     _XX=xx;
     _YY=(8*xx)/5;
@@ -64,7 +67,7 @@ vector<vector<textureblock>> Session::mapmaker(canvas c, vector<string> opts){
     for(int i=0;i<_jtszy;i++){
             vector<textureblock> sor;
         for(int j=0;j<_jtszx;j++){
-            textureblock a = textureblock(i*_XX/10,j*_XX/10,_XX/10,_XX/10,c,opts);
+            textureblock a = textureblock(i*_XX/10,j*_XX/10,_XX/10,_XX/10,c,opts,"terrain");
             sor.push_back(a);
         }
         v.push_back(sor);
@@ -100,8 +103,9 @@ void Session::event_loop(){
                 for (int i=0;i<_map.size();i++){
                     for (int j=0;j<_map[i].size();j++){
                         if (_map[i][j].isselected()){
-                            textureblock a = textureblock((i*_XX/10)+PIX,j*_XX/10+PIX,_XX/10-2*PIX,_XX/10-2*PIX,city,ures);
+                            textureblock a = textureblock((i*_XX/10)+PIX,j*_XX/10+PIX,_XX/10-2*PIX,_XX/10-2*PIX,city,ures,"city");
                             _players[_active_player].addtroop(a);
+                            _active_player= (_active_player+1)%_players.size();
 
                         }
                     }
@@ -111,8 +115,9 @@ void Session::event_loop(){
                 for (int i=0;i<_map.size();i++){
                     for (int j=0;j<_map[i].size();j++){
                         if (_map[i][j].isselected()){
-                            textureblock a = textureblock((i*_XX/10)+PIX,j*_XX/10+PIX,_XX/10-2*PIX,_XX/10-2*PIX,soldier,ures);
+                            textureblock a = textureblock((i*_XX/10)+PIX,j*_XX/10+PIX,_XX/10-2*PIX,_XX/10-2*PIX,soldier,ures,"soldier");
                             _players[_active_player].addtroop(a);
+                            _active_player= (_active_player+1)%_players.size();
 
                         }
                     }
@@ -120,10 +125,26 @@ void Session::event_loop(){
             }
             for (int i=0;i<_players.size();i++){
                     for (int j=0;j<_players[i]._egysegek.size();j++){
+                            if(_players[i]._egysegek[j].gettype()=="soldier" && _players[i]._egysegek[j].isselected()){
+                                if (ev.type==ev_key && ev.keycode==65536){
+                                    _players[i]._egysegek[j].changeplace("up");
+                                    cout<<"Up1"<<endl;
+                                }
+                                if (ev.type==ev_key && ev.keycode==65537){
+                                    _players[i]._egysegek[j].changeplace("down");
+                                }
+                                if (ev.type==ev_key && ev.keycode==65539){
+                                    _players[i]._egysegek[j].changeplace("right");
+                                }
+                                if (ev.type==ev_key && ev.keycode==65538){
+                                    _players[i]._egysegek[j].changeplace("left");
+                                }
+                            }
                         _players[i]._egysegek[j].draw();
                         _players[i]._egysegek[j].event_handle(ev);
                     }
             }
+            gout<<color(0,0,0)<<move_to(20,(4*_XX/5)+20)<<text("Valami");
             gout<<refresh;
     }
 }
