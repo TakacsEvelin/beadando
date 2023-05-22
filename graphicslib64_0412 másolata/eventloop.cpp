@@ -77,6 +77,7 @@ void Session::event_loop(){
     vector<string> ures;
     canvas bozot = kepolvas("bozot.png",false,0);
     canvas city = kepolvas("city.png",true,0);
+    canvas soldier = kepolvas("soldier.png",true,0);
     _map = mapmaker(bozot,ures);
     vector<textureblock> pv1;
     playerx p1 = playerx("Ambrus",pv1);
@@ -100,6 +101,17 @@ void Session::event_loop(){
                     for (int j=0;j<_map[i].size();j++){
                         if (_map[i][j].isselected()){
                             textureblock a = textureblock((i*_XX/10)+PIX,j*_XX/10+PIX,_XX/10-2*PIX,_XX/10-2*PIX,city,ures);
+                            _players[_active_player].addtroop(a);
+
+                        }
+                    }
+                }
+            }
+            if (ev.type==ev_key && ev.keycode==115){
+                for (int i=0;i<_map.size();i++){
+                    for (int j=0;j<_map[i].size();j++){
+                        if (_map[i][j].isselected()){
+                            textureblock a = textureblock((i*_XX/10)+PIX,j*_XX/10+PIX,_XX/10-2*PIX,_XX/10-2*PIX,soldier,ures);
                             _players[_active_player].addtroop(a);
 
                         }
