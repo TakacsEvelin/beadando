@@ -111,13 +111,13 @@
 	"graphics.hpp"
 	<vector>
 
-1684760990 source:c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\src\textureblock.cpp
+1684761137 source:c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\src\textureblock.cpp
 	"textureblock.hpp"
 	"../ewidget.hpp"
 	"graphics.hpp"
 	<vector>
 
-1684759694 c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\include\textureblock.hpp
+1684763615 c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\include\textureblock.hpp
 	"../ewidget.hpp"
 	"graphics.hpp"
 	<vector>
@@ -135,12 +135,13 @@
 	<fstream>
 	"eventloop.hpp"
 
-1684759753 c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\eventloop.hpp
+1684765347 c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\eventloop.hpp
 	<vector>
 	"textureblock.hpp"
 	"graphics.hpp"
+	"player.hpp"
 
-1684761003 source:c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\eventloop.cpp
+1684764766 source:c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\eventloop.cpp
 	<vector>
 	"textureblock.hpp"
 	"graphics.hpp"
@@ -153,6 +154,7 @@
 	"ewidget.hpp"
 	"spinbox.hpp"
 	"wordlist.hpp"
+	"player.hpp"
 
 1680183710 c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\stb_image.h
 	"stb_image.h"
@@ -170,4 +172,17 @@
 	<emmintrin.h>
 	<intrin.h>
 	<arm_neon.h>
+
+1684764783 c:\users\evena\documents\github\beadando3\graphicslib64_0412 másolata\include\player.hpp
+	<vector>
+	"textureblock.hpp"
+	"graphics.hpp"
+	"../eventloop.hpp"
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cmath>
+	"../ewidget.hpp"
+	"../spinbox.hpp"
+	"../wordlist.hpp"
 

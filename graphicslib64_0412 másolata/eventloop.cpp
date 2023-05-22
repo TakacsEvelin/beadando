@@ -11,6 +11,7 @@
 #include "ewidget.hpp"
 #include "spinbox.hpp"
 #include "wordlist.hpp"
+#include "player.hpp"
 
 Session::Session(int xx,int p, int jtx,int jty){
     _XX=xx;
@@ -20,6 +21,7 @@ Session::Session(int xx,int p, int jtx,int jty){
     _jtszy=jty;
     _ystart=jty/2;
     _xstart=jtx/2;
+    _active_player=0;
 }
 
 void Session::keptorol(){
@@ -75,15 +77,34 @@ void Session::event_loop(){
     gout.open(_XX,_YY);
     vector<string> ures;
     canvas bozot = kepolvas("bozot.png",false,0);
+    canvas city = kepolvas("city.png",true,0);
     _map = mapmaker(bozot,ures);
+    vector<textureblock> pv1;
+    player p1 = player("Ambrus",pv1);
+    vector<textureblock> pv2;
+    player p2 = player("Boglárka",pv2);
+    _players.push_back(p1);
+    _players.push_back(p1);
+
     event ev;
     while(gin >> ev && ev.keycode != key_escape) {
             keptorol();
+            cout<<ev.keycode<<endl;
             for (int i=0;i<_map.size();i++){
                     for (int j=0;j<_map[i].size();j++){
                         _map[i][j].draw();
                         _map[i][j].event_handle(ev);
                     }
+            }
+            if (ev.type==ev_key && ev.keycode==1){
+                for (int i=0;i<_map.size();i++){
+                    for (int j=0;j<_map[i].size();j++){
+                        if (_map[i][j].isselected()){
+                            textureblock a = textureblock((i*_XX/10)+PIX,j*_XX/10+PIX,_XX/10-2*PIX,_XX/10-2*PIX,city,ures);
+                            _players[_active_player].addtroop(a);
+                        }
+                    }
+            }
             }
             gout<<refresh;
     }

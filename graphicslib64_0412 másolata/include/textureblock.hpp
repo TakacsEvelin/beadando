@@ -17,6 +17,7 @@ public:
     textureblock(int x,int y,int xs,int ys,canvas t,vector<std::string> o);
     virtual void draw();
     virtual void event_handle(event ev);
+    bool isselected(){return _selected;}
 };
 
 #endif // TEXTUREBLOCK_HPP
