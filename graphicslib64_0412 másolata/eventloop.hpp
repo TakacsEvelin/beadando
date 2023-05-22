@@ -4,7 +4,7 @@
 #include <vector>
 #include "textureblock.hpp"
 #include "graphics.hpp"
-#include "player.hpp"
+#include "playerx.hpp"
 
 using namespace std;
 using namespace genv;
@@ -20,7 +20,7 @@ protected:
     int _ystart;
     int _active_player;
     vector<vector<textureblock>> _map;
-    vector<player> _players;
+    vector<playerx> _players;
     canvas kepolvas(const char* kepnev, const bool& pnge, const int& atlatszo);
     void keptorol();
     vector<vector<textureblock>> mapmaker(canvas c, vector<string> opts);

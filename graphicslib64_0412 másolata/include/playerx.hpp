@@ -15,7 +15,7 @@
 using namespace std;
 
 
-class playerx {
+class playerx{
     public:
         playerx(string n,vector<textureblock> e);
         void addtroop(textureblock a);

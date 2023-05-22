@@ -11,7 +11,7 @@
 #include "ewidget.hpp"
 #include "spinbox.hpp"
 #include "wordlist.hpp"
-#include "player.hpp"
+#include "playerx.hpp"
 
 Session::Session(int xx,int p, int jtx,int jty){
     _XX=xx;
@@ -80,9 +80,9 @@ void Session::event_loop(){
     canvas city = kepolvas("city.png",true,0);
     _map = mapmaker(bozot,ures);
     vector<textureblock> pv1;
-    player p1 = player("Ambrus",pv1);
+    playerx p1 = playerx("Ambrus",pv1);
     vector<textureblock> pv2;
-    player p2 = player("Boglárka",pv2);
+    playerx p2 = playerx("Boglárka",pv2);
     _players.push_back(p1);
     _players.push_back(p1);
 
